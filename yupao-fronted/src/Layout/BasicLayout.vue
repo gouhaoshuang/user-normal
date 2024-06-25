@@ -11,34 +11,26 @@
     </template>
   </van-nav-bar>
 
-  <div id="content">
-    <template v-if="active === 'index'">
-      <Index />
-    </template>
-    <template v-if="active === 'team'">
-      <team/>
-    </template>
-    <template v-if="active === 'user'">
-      <user/>
-    </template>
-  </div>
-  <van-tabbar v-model="active">
-    <van-tabbar-item icon="home-o" name="index">首页</van-tabbar-item>
-    <van-tabbar-item icon="friends-o" name="team">团队</van-tabbar-item>
-    <van-tabbar-item icon="setting-o" name="user">个人</van-tabbar-item>
+  <RouterView/>
+  <van-tabbar route >
+    <van-tabbar-item icon="home-o" to="/" name="index">首页</van-tabbar-item>
+    <van-tabbar-item icon="friends-o" to="/team" name="team">团队</van-tabbar-item>
+    <van-tabbar-item icon="setting-o" to="user" name="user">个人</van-tabbar-item>
   </van-tabbar>
 
 </template>
 <script setup lang="ts">
 import {ref} from "vue";
+import {Toast} from "vant";
 import Index from "../pages/index.vue";
 import team from "../pages/team.vue";
 import User from "../pages/user.vue";
-// const onClickLeft = () => history.back();
-// const onClickRight = () => history.back();
-// const searchClick = () => history.back();
+const onClickLeft = () => alert('左');
+const onClickRight = () => alert("右");
 
 const active = ref("index");
+
+
 
 </script>
 <style scoped>

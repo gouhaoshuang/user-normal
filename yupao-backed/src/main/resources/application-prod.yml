@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: yupao
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-2vcqo76q21918h9632o.mysql.cn-chengdu.rds.aliyuncs.com:3306/user-center
+    username: tianyi
+    password: 030717ghsA
+    # session失效时间
+  session:
+    timeout: 86400
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+
+
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+
+
+
+
+
