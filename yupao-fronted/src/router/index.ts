@@ -1,8 +1,10 @@
+
 import {createRouter, createWebHistory} from "vue-router";
 import index from "../pages/index.vue";
 import team from "../pages/team.vue";
 import user from "../pages/user.vue";
-const router = createRouter({
+import search from "../pages/search.vue";
+export const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
@@ -16,8 +18,11 @@ const router = createRouter({
         {
             path: '/user',
             component: user
+        },
+        {
+            path: '/search',
+            component: search
         }
     ]
 })
 
-export default router;

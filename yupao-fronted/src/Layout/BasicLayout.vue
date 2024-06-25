@@ -4,10 +4,10 @@
       left-text="返回"
       left-arrow
       @click-left="onClickLeft"
-      @click-right="onClickRight"
+      @click-right="searchClick"
   >
     <template #right>
-      <van-icon name="search" size="18" @click="searchClick" />
+      <van-icon name="search" size="18"/>
     </template>
   </van-nav-bar>
 
@@ -21,12 +21,17 @@
 </template>
 <script setup lang="ts">
 import {ref} from "vue";
-import {Toast} from "vant";
-import Index from "../pages/index.vue";
-import team from "../pages/team.vue";
-import User from "../pages/user.vue";
-const onClickLeft = () => alert('左');
-const onClickRight = () => alert("右");
+import {useRouter} from "vue-router";
+
+
+let router = useRouter();
+const onClickLeft = () => {
+  router.push("/")
+}
+
+const searchClick = () => {
+  router.push("/search");
+}
 
 const active = ref("index");
 
